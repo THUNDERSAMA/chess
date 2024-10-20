@@ -74,7 +74,7 @@ export default function Skeleton() {
   //default placing of icons
   const [iconPosition, setIconPosition] = useState<Position[]>([]);
   // const [prevnull, setPrevnull] = useState("");
-  let movesPreserve: string[] = [];
+  const movesPreserve: string[] = [];
   //   const [game, setGame] = useState(0);
 
   //   function setpos() {
