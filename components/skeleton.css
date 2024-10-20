@@ -1,0 +1,84 @@
+.ch-col{
+    display: flex;
+    justify-content:normal;
+    align-items: center;
+    padding: 0 20px;  
+}
+.ch-row{
+    display: flex;
+    flex-direction: column;
+    justify-content:normal;
+    align-items: center;
+    padding: 0 20px;  
+}
+.ch-border-h
+{
+    display: flex;
+    justify-content: normal;
+    align-items: center;
+    padding: 15px 40px;
+    text-align: center;
+    border-radius: 10px;
+}
+.ch-border-v
+{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+
+    padding: 0px 0px;
+    text-align: center;
+    
+}
+.cell-border-h
+{
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: blanchedalmond;
+
+}
+.cell-border-v
+{
+    width: 40px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blanchedalmond;
+
+}
+.cell
+{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.bg-cell-wh
+{
+    background-color: rgb(222, 235, 247);
+    border: 2px black solid;
+}
+.bg-cell-black
+{
+    background-color: black;
+    border: 2px  rgb(222, 235, 247) solid;
+}
+.bg-cell-highlight
+{
+    background-color: #f5deb38c;
+    opacity: 40%;
+}
+.bg-cell-warning
+{
+    background-color: #ff0000;
+    opacity: 55%;
+}
