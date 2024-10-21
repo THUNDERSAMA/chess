@@ -154,71 +154,141 @@ export default function Skeleton() {
   //   }
   useEffect(() => {
     function setPos() {
+      // const pos: Position[] = [
+      //   {
+      //     A0: "boat",
+      //     B0: "horse",
+      //     C0: "elephant",
+      //     D0: "queen",
+      //     E0: "king",
+      //     F0: "elephant",
+      //     G0: "horse",
+      //     H0: "boat",
+      //     A1: "pawn",
+      //     B1: "pawn",
+      //     C1: "pawn",
+      //     D1: "pawn",
+      //     E1: "pawn",
+      //     F1: "pawn",
+      //     G1: "pawn",
+      //     H1: "pawn",
+      //     A6: "pawn-black",
+      //     B6: "pawn-black",
+      //     C6: "pawn-black",
+      //     D6: "pawn-black",
+      //     E6: "pawn-black",
+      //     F6: "pawn-black",
+      //     G6: "pawn-black",
+      //     H6: "pawn-black",
+      //     A7: "boat-black",
+      //     B7: "horse-black",
+      //     C7: "elephant-black",
+      //     D7: "queen-black",
+      //     E7: "king-black",
+      //     F7: "elephant-black",
+      //     G7: "horse-black",
+      //     H7: "boat-black",
+      //     H2: null,
+      //     H3: null,
+      //     H4: null,
+      //     H5: null,
+      //     A2: null,
+      //     B2: null,
+      //     C2: null,
+      //     D2: null,
+      //     E2: null,
+      //     F2: null,
+      //     G2: null,
+      //     A3: null,
+      //     B3: null,
+      //     C3: null,
+      //     D3: null,
+      //     E3: null,
+      //     F3: null,
+      //     G3: null,
+      //     A4: null,
+      //     B4: null,
+      //     C4: null,
+      //     D4: null,
+      //     E4: null,
+      //     F4: null,
+      //     G4: null,
+      //     A5: null,
+      //     B5: null,
+      //     C5: null,
+      //     D5: null,
+      //     E5: null,
+      //     F5: null,
+      //     G5: null,
+      //   },
+      // ];
+
+      ///shuffle pieces
       const pos: Position[] = [
         {
-          A0: "boat",
-          B0: "horse",
-          C0: "elephant",
+          A0: "king",
+          B0: "pawn",
+          C0: null,
           D0: "queen",
-          E0: "king",
-          F0: "elephant",
-          G0: "horse",
-          H0: "boat",
-          A1: "pawn",
+          E0: "elephant-black",
+          F0: "horse",
+          G0: null,
+          H0: "pawn-black",
+          A1: null,
           B1: "pawn",
-          C1: "pawn",
-          D1: "pawn",
-          E1: "pawn",
-          F1: "pawn",
-          G1: "pawn",
-          H1: "pawn",
-          A6: "pawn-black",
-          B6: "pawn-black",
-          C6: "pawn-black",
-          D6: "pawn-black",
-          E6: "pawn-black",
-          F6: "pawn-black",
-          G6: "pawn-black",
-          H6: "pawn-black",
-          A7: "boat-black",
-          B7: "horse-black",
-          C7: "elephant-black",
-          D7: "queen-black",
-          E7: "king-black",
-          F7: "elephant-black",
+          C1: null,
+          D1: "boat-black",
+          E1: "horse",
+          F1: null,
+          G1: "pawn-black",
+          H1: null,
+          A6: "pawn",
+          B6: null,
+          C6: "queen-black",
+          D6: "boat",
+          E6: "king-black",
+          F6: null,
+          G6: "elephant",
+          H6: null,
+          A7: null,
+          B7: null,
+          C7: null,
+          D7: null,
+          E7: "boat-black",
+          F7: null,
           G7: "horse-black",
-          H7: "boat-black",
-          H2: null,
+          H7: null,
+          H2: "pawn",
           H3: null,
           H4: null,
-          H5: null,
-          A2: null,
-          B2: null,
+          H5: "pawn-black",
+          A2: "pawn-black",
+          B2: "boat",
           C2: null,
-          D2: null,
+          D2: "horse-black",
           E2: null,
           F2: null,
-          G2: null,
+          G2: "king",
           A3: null,
-          B3: null,
-          C3: null,
+          B3: "pawn",
+          C3: "elephant",
           D3: null,
           E3: null,
           F3: null,
-          G3: null,
+          G3: "elephant-black",
           A4: null,
           B4: null,
           C4: null,
-          D4: null,
+          D4: "pawn-black",
           E4: null,
           F4: null,
           G4: null,
           A5: null,
-          B5: null,
+          B5: "pawn",
           C5: null,
           D5: null,
           E5: null,
-          F5: null,
+          F5: "elephant",
           G5: null,
         },
       ];
@@ -294,9 +364,10 @@ export default function Skeleton() {
       iconPosition[0][indexClicked] != null
     ) {
       const piece = iconPosition[0][indexClicked];
-      //pawn logic starts
-      //pawn moves front only,if at base can move 2 steps
+
       if (piece == "pawn-black") {
+        //pawn logic starts
+        //pawn moves front only,if at base can move 2 steps
         //if pawn black
 
         //check if at base
@@ -307,6 +378,7 @@ export default function Skeleton() {
               makeHighlight(iconKey.charAt(0) + "4");
             }
           }
+
           //if there is a capture
 
           //ends
@@ -321,6 +393,34 @@ export default function Skeleton() {
           //if there is a capture
 
           //ends
+        }
+        const col = iconKey.charAt(0).charCodeAt(0);
+        const row = parseInt(iconKey.charAt(1));
+        //top-left
+        if (col - 1 >= 65 && row - 1 >= 0) {
+          if (!checkPosition(String.fromCharCode(col - 1) + (row - 1))) {
+            if (
+              checkPositionenemy(
+                String.fromCharCode(col - 1) + (row - 1),
+                "white"
+              )
+            ) {
+              makeHighlightwarn(String.fromCharCode(col - 1) + (row - 1));
+            }
+          }
+        }
+        //top-right
+        if (col + 1 <= 72 && row - 1 >= 0) {
+          if (!checkPosition(String.fromCharCode(col + 1) + (row - 1))) {
+            if (
+              checkPositionenemy(
+                String.fromCharCode(col + 1) + (row - 1),
+                "white"
+              )
+            ) {
+              makeHighlightwarn(String.fromCharCode(col + 1) + (row - 1));
+            }
+          }
         }
       } else if (piece == "pawn") {
         //if pawn white
@@ -347,6 +447,34 @@ export default function Skeleton() {
           //if there is a capture
 
           //ends
+        }
+        const col = iconKey.charAt(0).charCodeAt(0);
+        const row = parseInt(iconKey.charAt(1));
+        //bottom-left
+        if (col - 1 >= 65 && row + 1 <= 7) {
+          if (!checkPosition(String.fromCharCode(col - 1) + (row + 1))) {
+            if (
+              checkPositionenemy(
+                String.fromCharCode(col - 1) + (row + 1),
+                "black"
+              )
+            ) {
+              makeHighlightwarn(String.fromCharCode(col - 1) + (row + 1));
+            }
+          }
+        }
+        //bottom-right
+        if (col + 1 <= 72 && row + 1 <= 7) {
+          if (!checkPosition(String.fromCharCode(col + 1) + (row + 1))) {
+            if (
+              checkPositionenemy(
+                String.fromCharCode(col + 1) + (row + 1),
+                "black"
+              )
+            ) {
+              makeHighlightwarn(String.fromCharCode(col + 1) + (row + 1));
+            }
+          }
         }
       } else if (piece == "boat-black") {
         //left
@@ -401,6 +529,9 @@ export default function Skeleton() {
           if (checkPosition(nk)) {
             makeHighlight(nk);
           } else {
+            if (checkPositionenemy(nk, "black")) {
+              makeHighlightwarn(nk);
+            }
             break;
           }
         }
@@ -411,6 +542,9 @@ export default function Skeleton() {
           if (checkPosition(nk)) {
             makeHighlight(nk);
           } else {
+            if (checkPositionenemy(nk, "black")) {
+              makeHighlightwarn(nk);
+            }
             break;
           }
         }
@@ -421,6 +555,9 @@ export default function Skeleton() {
           if (checkPosition(nk)) {
             makeHighlight(nk);
           } else {
+            if (checkPositionenemy(nk, "black")) {
+              makeHighlightwarn(nk);
+            }
             break;
           }
         }
@@ -431,6 +568,9 @@ export default function Skeleton() {
           if (checkPosition(nk)) {
             makeHighlight(nk);
           } else {
+            if (checkPositionenemy(nk, "black")) {
+              makeHighlightwarn(nk);
+            }
             break;
           }
         }
@@ -648,6 +788,396 @@ export default function Skeleton() {
               makeHighlightwarn(String.fromCharCode(i) + j);
             }
             break;
+          }
+        }
+      } else if (piece == "queen") {
+        const col = iconKey.charAt(0).charCodeAt(0);
+        const row = parseInt(iconKey.charAt(1));
+        //left diagonal top
+        for (let i = col - 1, j = row - 1; i >= 65 && j >= 0; i--, j--) {
+          if (checkPosition(String.fromCharCode(i) + j)) {
+            makeHighlight(String.fromCharCode(i) + j);
+          } else {
+            if (checkPositionenemy(String.fromCharCode(i) + j, "black")) {
+              makeHighlightwarn(String.fromCharCode(i) + j);
+            }
+            break;
+          }
+        }
+        //right diagonal top
+        for (let i = col + 1, j = row - 1; i <= 72 && j >= 0; i++, j--) {
+          if (checkPosition(String.fromCharCode(i) + j)) {
+            makeHighlight(String.fromCharCode(i) + j);
+          } else {
+            if (checkPositionenemy(String.fromCharCode(i) + j, "black")) {
+              makeHighlightwarn(String.fromCharCode(i) + j);
+            }
+            break;
+          }
+        }
+        //left diagonal bottom
+        for (let i = col - 1, j = row + 1; i >= 65 && j <= 7; i--, j++) {
+          if (checkPosition(String.fromCharCode(i) + j)) {
+            makeHighlight(String.fromCharCode(i) + j);
+          } else {
+            if (checkPositionenemy(String.fromCharCode(i) + j, "black")) {
+              makeHighlightwarn(String.fromCharCode(i) + j);
+            }
+            break;
+          }
+        }
+        //right diagonal bottom
+        for (let i = col + 1, j = row + 1; i <= 72 && j <= 7; i++, j++) {
+          if (checkPosition(String.fromCharCode(i) + j)) {
+            makeHighlight(String.fromCharCode(i) + j);
+          } else {
+            if (checkPositionenemy(String.fromCharCode(i) + j, "black")) {
+              makeHighlightwarn(String.fromCharCode(i) + j);
+            }
+            break;
+          }
+        }
+        //left
+
+        for (let i = iconKey.charAt(0).charCodeAt(0) + 1; i <= 72; i++) {
+          const nk = String.fromCharCode(i) + iconKey.charAt(1);
+          console.log(nk);
+          if (checkPosition(nk)) {
+            makeHighlight(nk);
+          } else {
+            if (checkPositionenemy(nk, "black")) {
+              makeHighlightwarn(nk);
+            }
+            break;
+          }
+        }
+        //right
+        for (let i = iconKey.charAt(0).charCodeAt(0) - 1; i >= 65; i--) {
+          const nk = String.fromCharCode(i) + iconKey.charAt(1);
+          console.log(nk);
+          if (checkPosition(nk)) {
+            makeHighlight(nk);
+          } else {
+            if (checkPositionenemy(nk, "black")) {
+              makeHighlightwarn(nk);
+            }
+            break;
+          }
+        }
+        //top
+        for (let i = parseInt(iconKey.charAt(1)) - 1; i >= 0; i--) {
+          const nk = iconKey.charAt(0) + i;
+          console.log(nk);
+          if (checkPosition(nk)) {
+            makeHighlight(nk);
+          } else {
+            if (checkPositionenemy(nk, "black")) {
+              makeHighlightwarn(nk);
+            }
+            break;
+          }
+        }
+        //bottom
+        for (let i = parseInt(iconKey.charAt(1)) + 1; i <= 7; i++) {
+          const nk = iconKey.charAt(0) + i;
+          console.log(nk);
+          if (checkPosition(nk)) {
+            makeHighlight(nk);
+          } else {
+            if (checkPositionenemy(nk, "black")) {
+              makeHighlightwarn(nk);
+            }
+            break;
+          }
+        }
+      } else if (piece == "queen-black") {
+        const col = iconKey.charAt(0).charCodeAt(0);
+        const row = parseInt(iconKey.charAt(1));
+        //left diagonal top
+        for (let i = col - 1, j = row - 1; i >= 65 && j >= 0; i--, j--) {
+          if (checkPosition(String.fromCharCode(i) + j)) {
+            makeHighlight(String.fromCharCode(i) + j);
+          } else {
+            if (checkPositionenemy(String.fromCharCode(i) + j, "white")) {
+              makeHighlightwarn(String.fromCharCode(i) + j);
+            }
+            break;
+          }
+        }
+        //right diagonal top
+        for (let i = col + 1, j = row - 1; i <= 72 && j >= 0; i++, j--) {
+          if (checkPosition(String.fromCharCode(i) + j)) {
+            makeHighlight(String.fromCharCode(i) + j);
+          } else {
+            if (checkPositionenemy(String.fromCharCode(i) + j, "white")) {
+              makeHighlightwarn(String.fromCharCode(i) + j);
+            }
+            break;
+          }
+        }
+        //left diagonal bottom
+        for (let i = col - 1, j = row + 1; i >= 65 && j <= 7; i--, j++) {
+          if (checkPosition(String.fromCharCode(i) + j)) {
+            makeHighlight(String.fromCharCode(i) + j);
+          } else {
+            if (checkPositionenemy(String.fromCharCode(i) + j, "white")) {
+              makeHighlightwarn(String.fromCharCode(i) + j);
+            }
+            break;
+          }
+        }
+        //right diagonal bottom
+        for (let i = col + 1, j = row + 1; i <= 72 && j <= 7; i++, j++) {
+          if (checkPosition(String.fromCharCode(i) + j)) {
+            makeHighlight(String.fromCharCode(i) + j);
+          } else {
+            if (checkPositionenemy(String.fromCharCode(i) + j, "white")) {
+              makeHighlightwarn(String.fromCharCode(i) + j);
+            }
+            break;
+          }
+        }
+        //left
+
+        for (let i = iconKey.charAt(0).charCodeAt(0) + 1; i <= 72; i++) {
+          const nk = String.fromCharCode(i) + iconKey.charAt(1);
+          console.log(nk);
+          if (checkPosition(nk)) {
+            makeHighlight(nk);
+          } else {
+            if (checkPositionenemy(nk, "white")) {
+              makeHighlightwarn(nk);
+            }
+            break;
+          }
+        }
+        //right
+        for (let i = iconKey.charAt(0).charCodeAt(0) - 1; i >= 65; i--) {
+          const nk = String.fromCharCode(i) + iconKey.charAt(1);
+          console.log(nk);
+          if (checkPosition(nk)) {
+            makeHighlight(nk);
+          } else {
+            if (checkPositionenemy(nk, "white")) {
+              makeHighlightwarn(nk);
+            }
+            break;
+          }
+        }
+        //top
+        for (let i = parseInt(iconKey.charAt(1)) - 1; i >= 0; i--) {
+          const nk = iconKey.charAt(0) + i;
+          console.log(nk);
+          if (checkPosition(nk)) {
+            makeHighlight(nk);
+          } else {
+            if (checkPositionenemy(nk, "white")) {
+              makeHighlightwarn(nk);
+            }
+            break;
+          }
+        }
+        //bottom
+        for (let i = parseInt(iconKey.charAt(1)) + 1; i <= 7; i++) {
+          const nk = iconKey.charAt(0) + i;
+          console.log(nk);
+          if (checkPosition(nk)) {
+            makeHighlight(nk);
+          } else {
+            if (checkPositionenemy(nk, "white")) {
+              makeHighlightwarn(nk);
+            }
+            break;
+          }
+        }
+      } else if (piece == "king-black") {
+        const col = iconKey.charAt(0).charCodeAt(0);
+        const row = parseInt(iconKey.charAt(1));
+        //top-left
+        if (col - 1 >= 65 && row - 1 >= 0) {
+          if (checkPosition(String.fromCharCode(col - 1) + (row - 1))) {
+            makeHighlight(String.fromCharCode(col - 1) + (row - 1));
+          } else if (
+            checkPositionenemy(
+              String.fromCharCode(col - 1) + (row - 1),
+              "white"
+            )
+          ) {
+            makeHighlightwarn(String.fromCharCode(col - 1) + (row - 1));
+          }
+        }
+        //top
+        if (row - 1 >= 0) {
+          if (checkPosition(String.fromCharCode(col) + (row - 1))) {
+            makeHighlight(String.fromCharCode(col) + (row - 1));
+          } else if (
+            checkPositionenemy(String.fromCharCode(col) + (row - 1), "white")
+          ) {
+            makeHighlightwarn(String.fromCharCode(col) + (row - 1));
+          }
+        }
+        //top-right
+        if (col + 1 <= 72 && row - 1 >= 0) {
+          if (checkPosition(String.fromCharCode(col + 1) + (row - 1))) {
+            makeHighlight(String.fromCharCode(col + 1) + (row - 1));
+          } else if (
+            checkPositionenemy(
+              String.fromCharCode(col + 1) + (row - 1),
+              "white"
+            )
+          ) {
+            makeHighlightwarn(String.fromCharCode(col + 1) + (row - 1));
+          }
+        }
+        //right
+        if (col + 1 <= 72) {
+          if (checkPosition(String.fromCharCode(col + 1) + row)) {
+            makeHighlight(String.fromCharCode(col + 1) + row);
+          } else if (
+            checkPositionenemy(String.fromCharCode(col + 1) + row, "white")
+          ) {
+            makeHighlightwarn(String.fromCharCode(col + 1) + row);
+          }
+        }
+        //right-bottom
+        if (col + 1 <= 72 && row + 1 <= 8) {
+          if (checkPosition(String.fromCharCode(col + 1) + (row + 1))) {
+            makeHighlight(String.fromCharCode(col + 1) + (row + 1));
+          } else if (
+            checkPositionenemy(
+              String.fromCharCode(col + 1) + (row + 1),
+              "white"
+            )
+          ) {
+            makeHighlightwarn(String.fromCharCode(col + 1) + (row + 1));
+          }
+        }
+        //bottom
+        if (row + 1 <= 8) {
+          if (checkPosition(String.fromCharCode(col) + (row + 1))) {
+            makeHighlight(String.fromCharCode(col) + (row + 1));
+          } else if (
+            checkPositionenemy(String.fromCharCode(col) + (row + 1), "white")
+          ) {
+            makeHighlightwarn(String.fromCharCode(col) + (row + 1));
+          }
+        }
+        //bottom-left
+        if (col - 1 >= 65 && row + 1 <= 8) {
+          if (checkPosition(String.fromCharCode(col - 1) + (row + 1))) {
+            makeHighlight(String.fromCharCode(col - 1) + (row + 1));
+          } else if (
+            checkPositionenemy(
+              String.fromCharCode(col - 1) + (row + 1),
+              "white"
+            )
+          ) {
+            makeHighlightwarn(String.fromCharCode(col - 1) + (row + 1));
+          }
+        }
+        //left
+        if (col - 1 >= 65) {
+          if (checkPosition(String.fromCharCode(col - 1) + row)) {
+            makeHighlight(String.fromCharCode(col - 1) + row);
+          } else if (
+            checkPositionenemy(String.fromCharCode(col - 1) + row, "white")
+          ) {
+            makeHighlightwarn(String.fromCharCode(col - 1) + row);
+          }
+        }
+      } else if (piece == "king") {
+        const col = iconKey.charAt(0).charCodeAt(0);
+        const row = parseInt(iconKey.charAt(1));
+        //top-left
+        if (col - 1 >= 65 && row - 1 >= 0) {
+          if (checkPosition(String.fromCharCode(col - 1) + (row - 1))) {
+            makeHighlight(String.fromCharCode(col - 1) + (row - 1));
+          } else if (
+            checkPositionenemy(
+              String.fromCharCode(col - 1) + (row - 1),
+              "black"
+            )
+          ) {
+            makeHighlightwarn(String.fromCharCode(col - 1) + (row - 1));
+          }
+        }
+        //top
+        if (row - 1 >= 0) {
+          if (checkPosition(String.fromCharCode(col) + (row - 1))) {
+            makeHighlight(String.fromCharCode(col) + (row - 1));
+          } else if (
+            checkPositionenemy(String.fromCharCode(col) + (row - 1), "black")
+          ) {
+            makeHighlightwarn(String.fromCharCode(col) + (row - 1));
+          }
+        }
+        //top-right
+        if (col + 1 <= 72 && row - 1 >= 0) {
+          if (checkPosition(String.fromCharCode(col + 1) + (row - 1))) {
+            makeHighlight(String.fromCharCode(col + 1) + (row - 1));
+          } else if (
+            checkPositionenemy(
+              String.fromCharCode(col + 1) + (row - 1),
+              "black"
+            )
+          ) {
+            makeHighlightwarn(String.fromCharCode(col + 1) + (row - 1));
+          }
+        }
+        //right
+        if (col + 1 <= 72) {
+          if (checkPosition(String.fromCharCode(col + 1) + row)) {
+            makeHighlight(String.fromCharCode(col + 1) + row);
+          } else if (
+            checkPositionenemy(String.fromCharCode(col + 1) + row, "black")
+          ) {
+            makeHighlightwarn(String.fromCharCode(col + 1) + row);
+          }
+        }
+        //right-bottom
+        if (col + 1 <= 72 && row + 1 <= 8) {
+          if (checkPosition(String.fromCharCode(col + 1) + (row + 1))) {
+            makeHighlight(String.fromCharCode(col + 1) + (row + 1));
+          } else if (
+            checkPositionenemy(
+              String.fromCharCode(col + 1) + (row + 1),
+              "black"
+            )
+          ) {
+            makeHighlightwarn(String.fromCharCode(col + 1) + (row + 1));
+          }
+        }
+        //bottom
+        if (row + 1 <= 8) {
+          if (checkPosition(String.fromCharCode(col) + (row + 1))) {
+            makeHighlight(String.fromCharCode(col) + (row + 1));
+          } else if (
+            checkPositionenemy(String.fromCharCode(col) + (row + 1), "black")
+          ) {
+            makeHighlightwarn(String.fromCharCode(col) + (row + 1));
+          }
+        }
+        //bottom-left
+        if (col - 1 >= 65 && row + 1 <= 8) {
+          if (checkPosition(String.fromCharCode(col - 1) + (row + 1))) {
+            makeHighlight(String.fromCharCode(col - 1) + (row + 1));
+          } else if (
+            checkPositionenemy(
+              String.fromCharCode(col - 1) + (row + 1),
+              "black"
+            )
+          ) {
+            makeHighlightwarn(String.fromCharCode(col - 1) + (row + 1));
+          }
+        }
+        //left
+        if (col - 1 >= 65) {
+          if (checkPosition(String.fromCharCode(col - 1) + row)) {
+            makeHighlight(String.fromCharCode(col - 1) + row);
+          } else if (
+            checkPositionenemy(String.fromCharCode(col - 1) + row, "black")
+          ) {
+            makeHighlightwarn(String.fromCharCode(col - 1) + row);
           }
         }
       }
