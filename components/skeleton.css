@@ -82,3 +82,7 @@
     background-color: #ff0000;
     opacity: 55%;
 }
+.bg-cell-border-highlight
+{
+    border: #ffd000fb solid 2px;
+}
